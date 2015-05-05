@@ -1,0 +1,19 @@
+<div ng-controller='exchangeController'>
+    <span>Amount {{currency}}: </span>
+    <input type="text" ng-model="amount">
+
+    FROM: <select ng-model="baseCurr" ng-options="c as c for c in currencies"></select>
+    TO: <select ng-model="convCurr" ng-options="c as c for c in currencies"></select>
+    <button ng-click="go()">Go!</button>
+
+    <table>
+        <tr>
+            <td>{{baseCurr}} to {{convCurr}}</td>
+            <td>{{amount*fromToRate | number:2}} @ {{fromToRate | number:3}}</td>
+        </tr>
+        <tr>
+            <td>{{convCurr}} to {{baseCurr}}</td>
+            <td>{{amount*toFromRate | number:2}} @ {{toFromRate | number:3}}</td>
+        </tr>
+    </table>
+</div>
